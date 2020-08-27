@@ -1,0 +1,111 @@
+
+<html>
+<head>
+<title>Loan Amount Prediction</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/mystyle.css') }}">
+
+</head>
+
+<body>
+<center>
+<ul>
+	<li>Loan Amount Prediction</li>
+</ul>
+
+
+    <form action="{{ url_for('predict')}}"method="post">
+	<label for="account_info" class='select' style = 'padding:25%;'>account_info:</label><br>
+	<select name="account_info" required="required" class='select'>
+		<option value="0" class='option'>less than 0</option>
+		<option value="1">0 to 200</option>
+		<option value="2">greater than 200</option>
+		<option value="3">dont want to inform</option>
+	</select><br>
+	<label for="purpose">purpose:</label><br>
+	<select name="purpose" required="required">
+		<option value="0">New Car</option>
+		<option value="1">Old Car</option>
+		<option value="2">Furniture or Equipment</option>
+		<option value="3">Radio or TV</option>
+		<option value="4">Domestic Appliances</option>
+		<option value="5">Repairing Purposes</option>
+		<option value="6">Education</option>
+		<option value="7">Vacation</option>
+		<option value="8">Skilling</option>
+		<option value="9">Business and Establishment</option>
+	</select>
+	<br>
+	<label for="savings_account">savings_account:</label><br>
+	<select name="savings_account" required="required">
+		<option value="0">less than 100 units </option>
+		<option value="1">greater than 100 units and less than 500 units </option>
+		<option value="2">greater than 500 and less than 1000 units </option>
+		<option value="3">greater than 1000 units</option>
+		<option value="4">no savings account details is present</option>
+	</select>
+	<br>
+	<label for="employment_st">employment_st:</label><br>
+	<select name="employment_st" required="required">
+		<option value="0">unemployed</option>
+		<option value="1">employed for less than a year</option>
+		<option value="2">employed for more than a year but less than four years</option>
+		<option value="3">employed more than four years but less than seven years</option>
+		<option value="4">employed for more than seven years</option>
+	</select>
+	<br>
+	<label for="personal_status">personal_status:</label><br>
+	<select name="personal_status" required="required">
+		<option value="0">divorced male</option>
+		<option value="1">divorced female</option>
+		<option value="2">unmarried males</option>
+		<option value="3">widowed males</option>
+	</select>
+	<br>
+	<label for="property_type">property_type:</label><br>
+	<select name="property_type" required="required">
+		<option value="0">real estate property</option>
+		<option value="1">life insurance</option>
+		<option value="2">other properties</option>
+		<option value="4">not available</option>
+	</select>
+	<br>
+	<label for="installment_type">installment_type:</label><br>
+	<select name="installment_type" required="required">
+		<option value="0">to bank</option>
+		<option value="1">to outlets or stores</option>
+		<option value="2">no information is present</option>
+	</select>
+	<br>
+	<label for="job_type">job_type:</label><br>
+	<select name="job_type" required="required">
+		<option value="0">unskilled and is a non-resident</option>
+		<option value="1">unskilled but is a resident</option>
+		<option value="2">skilled employee or official</option>
+		<option value="3">self-employed </option>
+	</select>
+	<br>
+	<label for="telephone">telephone:</label><br>
+	<select name="telephone" required="required">
+		<option value="0">No</option>
+		<option value="1">Yes</option>
+	</select>
+	<br>
+	duration_month:<br>
+	<input type='number' name='duration_month' required="required"><br><br>
+	poi:<br>
+	<input type='number' name='poi' required="required"><br><br>
+	age:<br>
+	<input type='number' name='age' required="required"><br><br>
+	credits_no:<br>
+	<input type='number' name='credits_no'  required="required"><br><br>
+	liables:<br>
+	<input type='number' name='liables' required="required" >
+
+	<br>
+	
+	<button type="submit" class="button">Predict</button>
+	</form>
+	{{ prediction_text }}
+
+</body>
+</html>
