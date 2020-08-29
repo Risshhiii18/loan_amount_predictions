@@ -21,22 +21,20 @@ def predict():
     
     int_features = [int(x) for x in request.form.values()]
     final_features = [np.array(int_features)]
-    prediction = model.predict(final_features)
 
-    output = round(prediction[0], 2)
-    '''
-    int_features = [int(x) for x in request.form.values()]
-    final_features = [np.array(int_features)]
+    
+    
     df = pd.DataFrame(final_features)
     sc = StandardScaler()
     test = sc.fit_transform(df)
     
-    prediction = model.predict(final_features)
-    '''
+    prediction = model.predict(test)
+    
+    output = round(prediction[0], 2)
 
 
 
-    return render_template('home.html', prediction_text=output)
+    return render_template('home.html', prediction_text='You can get some of $ {}'.format(output))
 
 if __name__ == "__main__":
     app.run(debug=True)
