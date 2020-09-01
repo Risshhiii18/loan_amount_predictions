@@ -55,7 +55,9 @@ def predict():
     output = round(prediction[0])
 
 
+
     return render_template('home.html', prediction_text='You can get some of $ {}'.format(output))
+
 
 if __name__ == "__main__":
     app.run(debug=True)
