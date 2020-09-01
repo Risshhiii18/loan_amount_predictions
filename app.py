@@ -27,6 +27,7 @@ def predict():
     prediction = model.predict(final_features)
     
     output = round(prediction[0])
+    return render_template('home.html', prediction_text='You can get some of $ {}'.format(output))
 
 
 if __name__ == "__main__":
